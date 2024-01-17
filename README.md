@@ -1,4 +1,4 @@
-# catalog.github.io
+# OpenSearch Integrations Catalog
 
 The Integration catalog is a concept that focuses on grouping similar integration together to allow a meaningful way of introducing a common group into the user's working space.
 
@@ -26,22 +26,6 @@ The Catalog overall licensing schema
 ## Author
 The Catalog author (organization or a github user)
 > OpenSearch
-
-### Integrations List
-Each catalog has a list of components that each catalog is composed of, they are mostly commonly related to one another according to some general notion such as domain.
-
-**Example Component Structure**
-
-The Nginx Integration if part of the Observability Catalog:
-
-### Nginx Integration
-- **Description**: NGINX is open-source software for web serving, reverse proxying, caching, load balancing, media streaming, and more.
-- **Version**: 1.0
-- **URL**: [Nginx Integration on GitHub](https://github.com/opensearch-project/opensearch-catalog/blob/main/integrations/observability/nginx)
-- **Tags**: `log`, `http`, `communication`
-- **Logo**: <_logo image url_>
-- **Gallery**:
-    - **Dashboard**: <_dashboard image url_>
 
 ---
 
