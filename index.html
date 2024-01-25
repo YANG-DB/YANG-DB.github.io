@@ -69,19 +69,28 @@
             transition: max-height 0.2s ease-out;
             max-height: 1000px;
         }
+        .section-header {
+            transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .section-header:hover {
+            transform: scale(1.05);
+            color: #4a90e2;
+        }
 
     </style>
     
     </head>
     <body>
         
-        <div class="container">
-            <img src="https://opensearch.org/assets/brand/PNG/Logo/opensearch_logo_darkmode.png" style="width: 750px; height: 250px;" alt="Logo" />
-            <h1>OpenSearch Observability Catalog</h1>
+        <div class="container" style="text-align: center;">
+            <img src="https://opensearch.org/assets/brand/PNG/Logo/opensearch_logo_darkmode.png" style="width: 400px; height: auto;" alt="Logo" />
+            <h2><a href="https://github.com/opensearch-project/opensearch-catalog/tree/main/integrations/observability" style="text-decoration: none; color: inherit; font-weight: bold; border-bottom: 2px solid transparent;" onmouseover="this.style.borderBottom='2px solid';" onmouseout="this.style.borderBottom='2px solid transparent';">OpenSearch Observability Catalog</a></h2>
             <p><strong>Version:</strong> 1.0</p>
-            <p><strong>URL:</strong> <a href="https://github.com/opensearch-project/opensearch-catalog/tree/main/integrations/observability">https://github.com/opensearch-project/opensearch-catalog/tree/main/integrations/observability</a></p>
-            <p><strong>License:</strong> Apache-2.0</p>
-            <p><strong>Author:</strong> OpenSearch</p>
             <p><strong>Labels:</strong> <span class='label-item color-red'><span class='label-icon'>▶</span> log</span> <span class='label-item color-orange'><span class='label-icon'>❖</span> http</span> <span class='label-item color-blue'><span class='label-icon'>⋔</span> aws</span> <span class='label-item color-purple'><span class='label-icon'>✧</span> cloud</span> <span class='label-item color-violet'><span class='label-icon'>⤀</span> container</span> <span class='label-item color-green'><span class='label-icon'>❊</span> communication</span> </p>
         </div>
     
@@ -101,7 +110,7 @@
         }
     </script>
     
-    <h2 class='collapsible' onclick='toggleSection("integrations-section")'>Integrations</h2><div class='container content' id='integrations-section'><div class='row'>
+    <h2 class='collapsible section-header' onclick='toggleSection("integrations-section")'>Integrations</h2><div class='container content' id='integrations-section'><div class='row'>
             <div class="col-md-2 grid-item text-center">
                 <img src="https://raw.githubusercontent.com/opensearch-project/opensearch-catalog/main/integrations/observability/apache/static/logo.png" style="width: 75px; height: 75px; cursor: pointer;" alt="Apache Integration Logo" data-toggle="modal" data-target="#modalinteg-0">
                 <p>Apache Integration</p>
@@ -425,7 +434,7 @@
                 </div>
             </div>
         </div>
-    </div></div><h2 class='collapsible' onclick='toggleSection("visualizations-section")'>Visualizations</h2><div class='container content' id='visualizations-section'><div class='row'>
+    </div></div><h2 class='collapsible section-header' onclick='toggleSection("visualizations-section")'>Visualizations</h2><div class='container content' id='visualizations-section'><div class='row'>
             <div class="col-md-2 grid-item text-center">
                 <img src="https://raw.githubusercontent.com/opensearch-project/opensearch-catalog/main/visualizations/observability/service-duration-heatmap/static/logo.png" style="width: 75px; height: 75px; cursor: pointer;" alt="Services Duration Heat-Map Logo" data-toggle="modal" data-target="#modalvis-0">
                 <p>Services Duration Heat-Map</p>
