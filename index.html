@@ -240,35 +240,40 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
-<script>
-async function downloadPDF() {
+<script>async function downloadPDF() {
     const { jsPDF } = window.jspdf;
 
     const element = document.body;
+
+    // Create canvas
     const canvas = await html2canvas(element, {
-        scale: 0.8,      // higher resolution
+        scale: 1, 
         useCORS: true
     });
 
-    const imgData = canvas.toDataURL("image/png");
+    // Convert to JPEG for smaller size
+    const imgData = canvas.toDataURL("image/jpeg", 0.75);
+
     const pdf = new jsPDF("p", "mm", "a4");
 
     const pageWidth = pdf.internal.pageSize.getWidth();
     const pageHeight = pdf.internal.pageSize.getHeight();
+
     const imgWidth = pageWidth;
-    const imgHeight = canvas.height * imgWidth / canvas.width;
+    const imgHeight = (canvas.height * imgWidth) / canvas.width;
 
     let heightLeft = imgHeight;
     let position = 0;
 
-    pdf.addImage(imgData, "PNG", 0, position, imgWidth, imgHeight);
+    // First page
+    pdf.addImage(imgData, "JPEG", 0, 0, imgWidth, imgHeight, "", "FAST");
     heightLeft -= pageHeight;
 
-    // Add extra pages if needed
+    // Additional pages
     while (heightLeft > 0) {
-        position = heightLeft - imgHeight;
         pdf.addPage();
-        pdf.addImage(imgData, "PNG", 0, position, imgWidth, imgHeight);
+        position = heightLeft - imgHeight;  // negative offset to shift image up
+        pdf.addImage(imgData, "JPEG", 0, position, imgWidth, imgHeight, "", "FAST");
         heightLeft -= pageHeight;
     }
 
